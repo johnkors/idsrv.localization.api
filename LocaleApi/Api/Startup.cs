@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Newtonsoft.Json.Serialization;
 using Owin;
 
@@ -15,6 +16,7 @@ namespace Api
             config.Routes.MapHttpRoute("Default", "{controller}/{id}", new { controller = "Locale", id = RouteParameter.Optional });
             config.Formatters.Remove(config.Formatters.XmlFormatter);
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
         }
     }
