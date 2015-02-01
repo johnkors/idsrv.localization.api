@@ -38,9 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IdentityServer3.Localization, Version=0.2.21.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="IdentityServer3.Localization, Version=0.2.27.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\IdentityServer3.Localization.0.2.21\lib\net45\IdentityServer3.Localization.dll</HintPath>
+      <HintPath>..\packages\IdentityServer3.Localization.0.2.27\lib\net45\IdentityServer3.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin">

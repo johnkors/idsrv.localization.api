@@ -73,7 +73,7 @@ namespace Api
 
         public static IEnumerable<TranslationsComposite> GetAllTranslations()
         {
-            var allTranslations = LocalizationServiceFactory.AvailableLocalizationServices.Keys;
+            var allTranslations = new GlobalizedLocalizationService().GetAvailableLocales();
             return allTranslations.Select(GetAllTranslationsForLocale);
         }
     }
