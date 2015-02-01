@@ -71,8 +71,6 @@ namespace Api
             ScopeIds.Roles_DisplayName
         };
 
-        private static string _category;
-
         public static IEnumerable<TranslationsComposite> GetAllTranslations()
         {
             var allTranslations = LocalizationServiceFactory.AvailableLocalizationServices.Keys;
