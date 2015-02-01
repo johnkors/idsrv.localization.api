@@ -38,8 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IdentityServer3.Localization">
-      <HintPath>..\packages\IdentityServer3.Localization.0.2.6\lib\net45\IdentityServer3.Localization.dll</HintPath>
+    <Reference Include="IdentityServer3.Localization, Version=0.2.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\IdentityServer3.Localization.0.2.8\lib\net45\IdentityServer3.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin">
@@ -90,8 +91,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\IdTranslation.cs" />
-    <Compile Include="Controllers\TranslatorHelper.cs" />
+    <Compile Include="TranslatorHelper.cs" />
+    <Compile Include="IdTranslation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controllers\LocaleController.cs" />

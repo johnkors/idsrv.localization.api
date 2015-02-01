@@ -75,13 +75,8 @@ namespace Api
 
         public static IEnumerable<TranslationsComposite> GetAllTranslations()
         {
-            var norwegian = GetAllTranslationsForLocale("nb-NO");
-            var idsrv = GetAllTranslationsForLocale("");
-            return new List<TranslationsComposite>
-            {
-                idsrv,
-                norwegian
-            };
+            var allTranslations = LocalizationServiceFactory.AvailableLocalizationServices.Keys;
+            return allTranslations.Select(GetAllTranslationsForLocale);
         }
     }
 }
