@@ -4,6 +4,7 @@ namespace Api
 {
     public class TranslationsComposite
     {
+        public string IdSrvVersion { get; set; }
         public string Locale { get; set; }
         public IEnumerable<IdTranslation> Translations { get; set; }
     }
