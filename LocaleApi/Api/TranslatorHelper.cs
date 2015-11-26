@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Thinktecture.IdentityServer.Core.Resources;
-using Thinktecture.IdentityServer.Core.Services.Contrib;
+using IdentityServer3.Core.Configuration;
+using IdentityServer3.Core.Resources;
+using IdentityServer3.Core.Services.Contrib;
+
 
 namespace Api
 {
@@ -10,7 +12,7 @@ namespace Api
     {
         public static string GetIdsrvVersion()
         {
-            var ass = Assembly.GetAssembly(typeof (Thinktecture.IdentityServer.Core.Extensions.OwinExtensions));
+            var ass = Assembly.GetAssembly(typeof (IdentityServerOptions));
             var attrs = ass.GetCustomAttributes(typeof(AssemblyFileVersionAttribute), false);
             var version = ((AssemblyFileVersionAttribute)attrs[0]).Version.TrimEnd('0').TrimEnd('.');
             return version;
@@ -19,9 +21,9 @@ namespace Api
 
     public static class TranslatorHelper
     {
-        public static string Eventscategory = Thinktecture.IdentityServer.Core.Constants.LocalizationCategories.Events;
-        public static string Messagescategory = Thinktecture.IdentityServer.Core.Constants.LocalizationCategories.Messages;
-        public static string ScopesCategory = Thinktecture.IdentityServer.Core.Constants.LocalizationCategories.Scopes;
+        public static string Eventscategory = IdentityServer3.Core.Constants.LocalizationCategories.Events;
+        public static string Messagescategory = IdentityServer3.Core.Constants.LocalizationCategories.Messages;
+        public static string ScopesCategory = IdentityServer3.Core.Constants.LocalizationCategories.Scopes;
 
         public static TranslationsComposite GetAllTranslationsForLocale(string locale)
         {
