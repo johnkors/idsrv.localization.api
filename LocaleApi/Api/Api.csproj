@@ -43,8 +43,8 @@
       <HintPath>..\packages\IdentityServer3.2.2.0\lib\net45\IdentityServer3.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="IdentityServer3.Localization, Version=0.2.139.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IdentityServer3.Localization.0.2.139\lib\net45\IdentityServer3.Localization.dll</HintPath>
+    <Reference Include="IdentityServer3.Localization, Version=0.2.142.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityServer3.Localization.0.2.142\lib\net45\IdentityServer3.Localization.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
