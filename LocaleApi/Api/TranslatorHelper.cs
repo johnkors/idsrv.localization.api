@@ -42,7 +42,7 @@ namespace Api
 
         public static IEnumerable<TranslationsComposite> GetAllTranslations()
         {
-            return GlobalizedLocalizationService.GetAvailableLocales().Select(GetAllTranslationsForLocale);
+            return GlobalizedLocalizationService.GetAvailableLocales().Select(GetAllTranslationsForLocale).OrderBy( c => c.Locale);
         }
 
         public static IEnumerable<string> AllMessageIds
