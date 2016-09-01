@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using IdentityServer3.Core.Configuration;
 using IdentityServer3.Core.Resources;
+using IdentityServer3.Core.Services;
 using IdentityServer3.Core.Services.Contrib;
 
 
@@ -25,24 +27,30 @@ namespace Api
         public static string Messagescategory = IdentityServer3.Core.Constants.LocalizationCategories.Messages;
         public static string ScopesCategory = IdentityServer3.Core.Constants.LocalizationCategories.Scopes;
 
-        public static TranslationsComposite GetAllTranslationsForLocale(string locale)
+        public static TranslationsComposite GetAllTranslationsForLocale(HttpRequestMessage Request , string id)
         {
-            var options = new LocaleOptions { Locale = locale };
-            var localeService = new GlobalizedLocalizationService(options);
+            IDictionary<string, object> env = Request.GetOwinEnvironment();
+            var options = new LocaleOptions
+            {
+                LocaleProvider =  e => { return id; }
+            };
+            var localeService = new GlobalizedLocalizationService(new OwinEnvironmentService(env), options);
 
             var allTranslationsForLocale = (from eventId in AllEventIds let value = localeService.GetString(Eventscategory, eventId) select new IdTranslation { Id = eventId, Value = value }).ToList();
             allTranslationsForLocale.AddRange(from messageId in AllMessageIds let value = localeService.GetString(Messagescategory, messageId) select new IdTranslation { Id = messageId, Value = value });
             allTranslationsForLocale.AddRange(from scopeId in AllScopeIds let value = localeService.GetString(ScopesCategory, scopeId) select new IdTranslation { Id = scopeId, Value = value });
+
+            
+            var headerValue = Request.Headers.AcceptLanguage.OrderByDescending(s => s.Quality.GetValueOrDefault(1));
+            var localeFromHeader = headerValue.FirstOrDefault();
+
             return new TranslationsComposite
             {
-                Locale = locale, Translations = allTranslationsForLocale ,
+                Locale = id,
+                HeaderLanguage = localeFromHeader.Value,
+                Translations = allTranslationsForLocale ,
                 IdSrvVersion = VersionHelper.GetIdsrvVersion()
             };
-        }
-
-        public static IEnumerable<TranslationsComposite> GetAllTranslations()
-        {
-            return GlobalizedLocalizationService.GetAvailableLocales().Select(GetAllTranslationsForLocale).OrderBy( c => c.Locale);
         }
 
         public static IEnumerable<string> AllMessageIds
