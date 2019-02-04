@@ -42,8 +42,8 @@
     <Reference Include="IdentityServer3, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IdentityServer3.2.6.0\lib\net45\IdentityServer3.dll</HintPath>
     </Reference>
-    <Reference Include="IdentityServer3.Localization, Version=0.3.194.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\IdentityServer3.Localization.0.3.194\lib\net45\IdentityServer3.Localization.dll</HintPath>
+    <Reference Include="IdentityServer3.Localization, Version=0.3.200.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityServer3.Localization.0.3.200\lib\net45\IdentityServer3.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin">
